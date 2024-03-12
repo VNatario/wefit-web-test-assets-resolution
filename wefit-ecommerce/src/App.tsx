@@ -1,12 +1,14 @@
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from './styles/global'
 import { defaultTheme } from './styles/theme/default'
+import { RouterProvider } from 'react-router-dom'
+import { router } from './routes'
 
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
-      <h1>WeFit</h1>
+      <RouterProvider router={router} />
     </ThemeProvider>
   )
 }
