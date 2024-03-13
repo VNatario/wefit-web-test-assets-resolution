@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { ButtonContainer } from '../Button/styles'
 
 export const CardContainer = styled.div`
   width: 100%;
@@ -12,22 +13,44 @@ export const CardContainer = styled.div`
   border-radius: 4px;
   height: 20.25rem;
 
-  img {
+  & > img {
     width: 9.1875rem;
     height: 11.75height;
   }
 
-  h3 {
+  & > h3 {
     font-size: ${({ theme }) => theme.textSizes['text-xs']};
     color: ${({ theme }) => theme.colors.title};
     font-weight: 700;
     line-height: normal;
   }
 
-  span {
+  & > span {
     color: ${({ theme }) => theme.colors.background};
     font-size: ${({ theme }) => theme.textSizes['text-m']};
     font-weight: 700;
     line-height: normal;
+  }
+`
+
+export const ButtonCount = styled(ButtonContainer)`
+  text-transform: uppercase;
+  & > div {
+    display: flex;
+    gap: 0.21rem;
+    justify-content: center;
+    align-items: end;
+
+    & > img {
+      width: 0.85rem;
+      height: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    & > span {
+      color: ${({ theme }) => theme.colors['white']};
+      font-size: ${({ theme }) => theme.textSizes['text-xs']};
+      font-weight: 400;
+    }
   }
 `

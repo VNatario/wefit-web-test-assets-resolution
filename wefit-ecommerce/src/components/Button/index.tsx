@@ -1,17 +1,14 @@
 import { ButtonContainer } from './styles'
-import addCartIcon from '../../assets/Icons/addCartIcon.svg'
+import { ButtonHTMLAttributes } from 'react'
 
-export function Button() {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode
+}
+
+export function Button({ children, ...props }: ButtonProps) {
   return (
-    <ButtonContainer type="button">
-      <div>
-        <img
-          src={addCartIcon}
-          alt="Icone de carrinho de compras com sinal de soma"
-        />
-        <span>0</span>
-      </div>
-      Adicionar ao carrinho
+    <ButtonContainer type="button" {...props}>
+      {children}
     </ButtonContainer>
   )
 }
