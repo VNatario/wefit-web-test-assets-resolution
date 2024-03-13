@@ -12,6 +12,8 @@ interface CartContextType {
   addCartItem: (CartItem: CartItem) => void
   changeQuantity: (id: number, type: 'increase' | 'decrease') => void
   removeCartItem: (id: number) => void
+  quantityMovieSelected: (id: number) => number
+  finishOrder: () => void
 }
 
 interface CartContextProviderProps {
@@ -31,12 +33,16 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     return []
   }
 
-  const cartQuantity = cartItems.length
+  const cartQuantity = cartItems.reduce((acc, cur) => acc + cur.quantity, 0)
 
   const cartItemsTotal = cartItems.reduce(
-    (acc, cur) => acc + cur.price * cur.price,
+    (acc, cur) => acc + cur.price * cur.quantity,
     0
   )
+
+  const quantityMovieSelected = (id: number) => {
+    return cartItems.find((item) => item.id === id)?.quantity || 0
+  }
 
   function addCartItem(CartItem: CartItem) {
     const isItemAlreadyAdded = cartItems.findIndex(
@@ -88,6 +94,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     }
   }
 
+  function finishOrder() {
+    setCartItems([])
+  }
+
   useEffect(() => {
     localStorage.setItem('@wefit:cartItems', JSON.stringify(cartItems))
   }, [cartItems])
@@ -101,6 +111,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         addCartItem,
         changeQuantity,
         removeCartItem,
+        quantityMovieSelected,
+        finishOrder,
       }}
     >
       {children}

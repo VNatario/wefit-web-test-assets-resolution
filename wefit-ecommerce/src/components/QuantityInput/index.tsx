@@ -16,10 +16,10 @@ export function QuantityInput({
 }: InputQuantityProps) {
   return (
     <QuantityContainer>
-      <ButtonWrapper onClick={onDecrease}>
+      <ButtonWrapper onClick={onDecrease} disabled={value <= 1}>
         <img src={minusIcon} alt="Icone de subtrair" />
       </ButtonWrapper>
-      <input type="text" readOnly value={value} onChange={onChange} />
+      <input type="number" readOnly value={value} onChange={onChange} />
       <ButtonWrapper onClick={onIncrease}>
         <img src={plusIcon} alt="Icone de somar" />
       </ButtonWrapper>

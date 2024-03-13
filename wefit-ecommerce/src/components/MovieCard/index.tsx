@@ -1,12 +1,21 @@
 import { ButtonCount, CardContainer } from './styles'
 import addCartIcon from '../../assets/Icons/addCartIcon.svg'
 import { MovieItem } from '../../pages/Home'
+import { useCart } from '../../hooks/useCart'
 
 interface ButtonCountProps {
-  active?: boolean
   movie: MovieItem
 }
-export function MovieCard({ active = false, movie }: ButtonCountProps) {
+export function MovieCard({ movie }: ButtonCountProps) {
+  const { addCartItem, quantityMovieSelected } = useCart()
+  function hanldeAddToCart() {
+    const itemToAdd = {
+      ...movie,
+      quantity: 1,
+    }
+    addCartItem(itemToAdd)
+  }
+
   return (
     <CardContainer>
       <img src={movie.image} />
@@ -17,13 +26,16 @@ export function MovieCard({ active = false, movie }: ButtonCountProps) {
           currency: 'BRL',
         })}
       </span>
-      <ButtonCount $active={active}>
+      <ButtonCount
+        $active={quantityMovieSelected(movie.id) > 0}
+        onClick={hanldeAddToCart}
+      >
         <div>
           <img
             src={addCartIcon}
             alt="Icone de carrinho de compras com sinal de soma"
           />
-          <span>0</span>
+          <span>{quantityMovieSelected(movie.id)}</span>
         </div>
         Adicionar ao carrinho
       </ButtonCount>

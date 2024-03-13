@@ -5,51 +5,67 @@ import {
   CartContentWeb,
   FooterCart,
   MovieContent,
-  Price,
   QuantityContainer,
   Subtotal,
   TotalPrice,
 } from './styles'
 import { Button } from '../Button'
 import { NavLink } from 'react-router-dom'
+import { formatPrice } from '../../helpers'
+import { useCart } from '../../hooks/useCart'
+import { Fragment } from 'react/jsx-runtime'
 
 export function CartWeb() {
+  const {
+    changeQuantity,
+    removeCartItem,
+    cartItemsTotal,
+    finishOrder,
+    cartItems,
+  } = useCart()
+
   return (
     <CartContentWeb>
       <h3>PRODUTO</h3>
       <h3>QTD</h3>
       <h3>SUBTOTAL</h3>
 
-      <>
-        <MovieContent>
-          <img src="https://wefit-react-web-test.s3.amazonaws.com/shang-chi.png" />
-          <div>
-            <h4>Nome do Filme</h4>
-            <p> R$ 29,99</p>
-          </div>
-        </MovieContent>
+      {cartItems.map((item) => (
+        <Fragment key={item.id}>
+          <MovieContent>
+            <img src={item.image} />
+            <div>
+              <h4>{item.title}</h4>
+              <p>{formatPrice(item.price)}</p>
+            </div>
+          </MovieContent>
 
-        <QuantityContainer>
-          <QuantityInput />
-        </QuantityContainer>
+          <QuantityContainer>
+            <QuantityInput
+              value={item.quantity}
+              onDecrease={() => changeQuantity(item.id, 'decrease')}
+              onIncrease={() => changeQuantity(item.id, 'increase')}
+            />
+          </QuantityContainer>
 
-        <Subtotal>R$ 29,99</Subtotal>
+          <Subtotal>{formatPrice(item.price * item.quantity)}</Subtotal>
 
-        <TrashButton>
-          <img src={trashIcon} alt="" />
-        </TrashButton>
-      </>
+          <TrashButton onClick={() => removeCartItem(item.id)}>
+            <img src={trashIcon} alt="" />
+          </TrashButton>
+        </Fragment>
+      ))}
 
       <hr />
 
       <FooterCart>
-        <NavLink to="/success">
+        <NavLink to="/success" onClick={() => finishOrder()}>
           <Button>FINALIZAR PEDIDO</Button>
         </NavLink>
 
         <TotalPrice>
           <p>TOTAL</p>
-          <span>R$ 29,90</span>
+          <span>{formatPrice(cartItemsTotal)}</span>
         </TotalPrice>
       </FooterCart>
     </CartContentWeb>

@@ -1,8 +1,11 @@
 import { CartOptions, NavbarContainer } from './styles'
 import cartIcon from '../../assets/Icons/cartIcon.svg'
 import { NavLink } from 'react-router-dom'
+import { useCart } from '../../hooks/useCart'
 
 export function Navbar() {
+  const { cartQuantity } = useCart()
+
   return (
     <NavbarContainer>
       <NavLink to="/">
@@ -11,7 +14,7 @@ export function Navbar() {
       <CartOptions to="/cart">
         <div>
           <h2>Meu Carrinho</h2>
-          <span>0 itens</span>
+          <span>{cartQuantity || 0} itens</span>
         </div>
         <img src={cartIcon} alt="Icone de carrinho de compras" />
       </CartOptions>
