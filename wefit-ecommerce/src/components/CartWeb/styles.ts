@@ -64,6 +64,11 @@ export const FooterCart = styled.div`
   button {
     max-width: 10.8125rem;
   }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `
 
 export const TotalPrice = styled.div`

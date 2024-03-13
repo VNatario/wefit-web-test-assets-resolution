@@ -25,7 +25,7 @@ export const RefreshContainer = styled.div`
 
   a {
     text-decoration: none;
-    color: 'inherit';
+    color: inherit;
   }
 
   button {

@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const NavbarContainer = styled.nav`
@@ -15,9 +16,14 @@ export const NavbarContainer = styled.nav`
     font-size: ${({ theme }) => theme.textSizes['text-l']};
     font-weight: 700;
   }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `
 
-export const CartOptions = styled.div`
+export const CartOptions = styled(NavLink)`
   display: flex;
   align-items: center;
   gap: 0.5rem;

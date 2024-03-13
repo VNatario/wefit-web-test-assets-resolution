@@ -11,6 +11,7 @@ import {
   TotalPrice,
 } from './styles'
 import { Button } from '../Button'
+import { NavLink } from 'react-router-dom'
 
 export function CartWeb() {
   return (
@@ -42,7 +43,10 @@ export function CartWeb() {
       <hr />
 
       <FooterCart>
-        <Button>FINALIZAR PEDIDO</Button>
+        <NavLink to="/success">
+          <Button>FINALIZAR PEDIDO</Button>
+        </NavLink>
+
         <TotalPrice>
           <p>TOTAL</p>
           <span>R$ 29,90</span>

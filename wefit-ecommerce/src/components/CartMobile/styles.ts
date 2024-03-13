@@ -115,4 +115,8 @@ export const CartFooter = styled.footer`
       color: ${({ theme }) => theme.colors.background};
     }
   }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `

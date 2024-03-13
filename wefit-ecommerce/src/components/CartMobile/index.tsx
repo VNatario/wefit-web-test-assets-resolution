@@ -11,6 +11,7 @@ import {
 } from './styles'
 import trashIcon from '../../assets/Icons/trashIcon.svg'
 import { Button } from '../Button'
+import { NavLink } from 'react-router-dom'
 
 export function CartMobile() {
   return (
@@ -45,7 +46,9 @@ export function CartMobile() {
           <span>TOTAL</span>
           <p>R$ 29,90</p>
         </div>
-        <Button>FINALIZAR PEDIDO</Button>
+        <NavLink to="/success">
+          <Button>FINALIZAR PEDIDO</Button>
+        </NavLink>
       </CartFooter>
     </CartContent>
   )
