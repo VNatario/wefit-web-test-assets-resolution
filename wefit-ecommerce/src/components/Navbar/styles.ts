@@ -6,6 +6,10 @@ export const NavbarContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
+  background-color: ${({ theme }) => theme.colors.background};
+  position: sticky;
+  top: 0;
+  z-index: 1;
 
   h1 {
     font-size: ${({ theme }) => theme.textSizes['text-l']};
@@ -22,6 +26,9 @@ export const CartOptions = styled.div`
     text-align: right;
 
     h2 {
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
       font-size: ${({ theme }) => theme.textSizes['text-s']};
       font-weight: 600;
     }
