@@ -1,15 +1,22 @@
 import { ButtonCount, CardContainer } from './styles'
 import addCartIcon from '../../assets/Icons/addCartIcon.svg'
+import { MovieItem } from '../../pages/Home'
 
 interface ButtonCountProps {
   active?: boolean
+  movie: MovieItem
 }
-export function MovieCard({ active = false }: ButtonCountProps) {
+export function MovieCard({ active = false, movie }: ButtonCountProps) {
   return (
     <CardContainer>
-      <img src="https://wefit-react-web-test.s3.amazonaws.com/shang-chi.png" />
-      <h3>Nome do Filme</h3>
-      <span>R$ 20,99</span>
+      <img src={movie.image} />
+      <h3>{movie.title}</h3>
+      <span>
+        {movie.price.toLocaleString('pt-br', {
+          style: 'currency',
+          currency: 'BRL',
+        })}
+      </span>
       <ButtonCount $active={active}>
         <div>
           <img

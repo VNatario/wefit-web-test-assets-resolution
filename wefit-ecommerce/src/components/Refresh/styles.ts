@@ -23,7 +23,12 @@ export const RefreshContainer = styled.div`
     text-align: center;
   }
 
+  a {
+    text-decoration: none;
+    color: 'inherit';
+  }
+
   button {
-    max-width: 10.8125rem;
+    width: 10.8125rem;
   }
 `
