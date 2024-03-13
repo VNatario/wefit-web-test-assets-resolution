@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const RefreshContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
-  flex: 1;
   padding: 4rem;
   display: flex;
   align-items: center;
@@ -10,6 +9,7 @@ export const RefreshContainer = styled.div`
   gap: 1.5rem;
   flex-direction: column;
   border-radius: 4px;
+  margin-inline: 1rem;
   height: 37.25rem;
   @media screen and (max-width: 768px) {
     height: auto;

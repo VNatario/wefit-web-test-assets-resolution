@@ -3,6 +3,7 @@ import { AppLayout } from './pages/layouts/app'
 import { Home } from './pages/Home'
 
 import { Cart } from './pages/Cart'
+import { Success } from './pages/Success'
 
 export const router = createBrowserRouter([
   {
@@ -19,8 +20,8 @@ export const router = createBrowserRouter([
         element: <Cart />,
       },
       {
-        path: '/finished',
-        element: <h1>Sucesso na compra</h1>,
+        path: '/success',
+        element: <Success />,
       },
     ],
   },
