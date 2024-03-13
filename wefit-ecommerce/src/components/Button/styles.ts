@@ -12,4 +12,9 @@ export const ButtonContainer = styled.button`
   justify-content: center;
   align-items: center;
   gap: 0.75rem;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors['button-hover']};
+    transition: all 0.2s;
+  }
 `

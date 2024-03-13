@@ -1,5 +1,9 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { ButtonContainer } from '../Button/styles'
+
+interface ButtonCountProps {
+  $active: boolean
+}
 
 export const CardContainer = styled.div`
   width: 100%;
@@ -33,8 +37,19 @@ export const CardContainer = styled.div`
   }
 `
 
-export const ButtonCount = styled(ButtonContainer)`
+export const ButtonCount = styled(ButtonContainer)<ButtonCountProps>`
   text-transform: uppercase;
+
+  ${({ $active }) =>
+    $active &&
+    css`
+      background-color: ${({ theme }) => theme.colors['button-active']};
+      &:hover {
+        background-color: ${({ theme }) => theme.colors['button-active']};
+        transition: all 0.2s;
+      }
+    `}
+
   & > div {
     display: flex;
     gap: 0.21rem;
