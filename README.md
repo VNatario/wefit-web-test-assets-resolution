@@ -1,4 +1,4 @@
-# Minha Aplicação React com Context API, TypeScript e Styled-Components
+# Aplicação React com Context API, TypeScript e Styled-Components
 
 Este é um projeto React que utiliza Context API para gerenciar o estado global da aplicação, TypeScript para adicionar tipagem estática ao JavaScript e Styled-Components para estilização.
 
