@@ -14,8 +14,25 @@ body {
   color: ${({ theme }) => theme.colors.white}
 }
 
+a{ 
+  text-decoration: none;
+  color: inherit;
+}
+
 button{
   cursor: pointer;
   border: none;
  }
+
+ input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+    input[type='number']{
+        -moz-appearance: textfield;
+    }
+
+
 `
