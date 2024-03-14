@@ -15,7 +15,7 @@ git clone https://github.com/VNatario/wefit-web-test-assets-resolution.git
 2. Navegue até o diretório do projeto:
 
 ```
-cd .\wefit-web-test-assets\wefit-ecommerce\
+cd .\wefit-web-test-assets-resolution\wefit-ecommerce\
 ```
 
 3. Instale as dependências:
