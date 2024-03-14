@@ -29,3 +29,8 @@ npm install
 ```
 npm start
 ```
+
+5. Para acessar o projeto acesse:
+```
+ http://localhost:5173/
+```
